@@ -27,13 +27,7 @@ La idea es hacerlo simple y práctico, sin complicaciones.
 
 ---
 
-## Cosas que deberías saber
 
-- Si recargas la página, se borran los nombres (no guarda los datos aún).  
-- Por ahora, no hay control para que no salga el mismo nombre varias veces en sorteos diferentes.  
-- Me encantaría agregar más funciones, pero por ahora es simple y funcional.  
-
----
 
 ## ¿Quieres probarlo?
 
