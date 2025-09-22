@@ -1,20 +1,31 @@
 let amigos = [];
 
+// Función para agregar un amigo
 function agregarAmigo() { 
-   let input = document.getElementById("amigo");
-   let nombre = input.value.trim();
+    let input = document.getElementById("amigo");
+    let nombre = input.value.trim();
 
-   if (nombre === "") {
-       alert("Ingrese nombre por favor!");
-       return;
-   }
-   
-   amigos.push(nombre);
-   input.value = "";
-   renderLista();
-   console.log(amigos);
+    // Validación: que no esté vacío
+    if (nombre === "") {
+        alert("Ingrese nombre por favor!");
+        return;
+    }
+
+    // Validación: solo letras, espacios y acentos
+    const soloLetras = /^[A-Za-zÁÉÍÓÚáéíóúÑñ\s]+$/;
+    if (!soloLetras.test(nombre)) {
+        alert("No se pueden ingresar signos o numeros, Ingrese nombre valido");
+        return;
+    }
+
+    // Si pasa las validaciones, se agrega a la lista
+    amigos.push(nombre);
+    input.value = "";
+    renderLista();
+    console.log(amigos);
 }
 
+// Función para mostrar la lista en pantalla
 function renderLista() {
     const lista = document.getElementById("listaAmigos");
     lista.innerHTML = ""; // Limpiar la lista antes de renderizar
@@ -26,6 +37,7 @@ function renderLista() {
     }
 }
 
+// Función para sortear un amigo secreto
 function sortearAmigo() {
     // 1️⃣ Validar que la lista no esté vacía
     if (amigos.length === 0) {
@@ -43,7 +55,7 @@ function sortearAmigo() {
     const resultadoElemento = document.getElementById("resultado");
     resultadoElemento.innerHTML = `¡El amigo secreto es: <strong>${amigoSorteado}</strong>!`;
 
-    
+    // 5️⃣ Limpiar lista después de sortear
     amigos = [];
-    renderLista(); 
+    renderLista();
 }
